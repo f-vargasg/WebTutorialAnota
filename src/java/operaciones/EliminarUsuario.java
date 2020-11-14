@@ -9,7 +9,6 @@ import bean.Usuario;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.UsuarioDao;
-import java.sql.SQLException;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -19,27 +18,26 @@ import org.apache.struts2.convention.annotation.Result;
  * @author garfi
  */
 @Namespace(value = "/JSP")
-@Action(value = "registrar", results = {
+@Action(value = "eliminarUsuario", results = {
     @Result(name = SUCCESS, location = "/JSP/exito.jsp")})
-public class RegistrarAction extends ActionSupport {
+public class EliminarUsuario extends ActionSupport {
 
-    private Usuario us = new Usuario();
+    private int id;
 
-    @Override
-    public String execute() throws SQLException {
-
-        UsuarioDao ad = new UsuarioDao();
-
-        ad.insertar(getUs());
-
-        return SUCCESS;
+    public int getId() {
+        return id;
     }
 
-    /**
-     * @return the us
-     */
-    public Usuario getUs() {
-        return us;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String execute() throws Exception {
+        UsuarioDao ad = new UsuarioDao();
+
+        ad.borrar(getId());
+        return SUCCESS;
     }
 
 }

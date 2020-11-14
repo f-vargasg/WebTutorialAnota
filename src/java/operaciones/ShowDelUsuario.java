@@ -9,8 +9,6 @@ import bean.Usuario;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.UsuarioDao;
-import java.util.ArrayList;
-import java.util.List;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -19,25 +17,46 @@ import org.apache.struts2.convention.annotation.Result;
  *
  * @author garfi
  */
-@Namespace(value="/JSP")
-// @Action(value="consultar", results= {@Result(name="success" , location="/JSP/tabla.jsp")})
-@Action(value="consultar", results= {@Result(name=SUCCESS , location="/JSP/tabla.jsp")})
-public class ConsultarAction extends ActionSupport {
+@Namespace(value = "/JSP")
+@Action(value = "showDelUsuario", results = {
+    @Result(name = SUCCESS, location = "/JSP/delUsuario.jsp")})
+public class ShowDelUsuario extends ActionSupport {
 
-    private List<Usuario> lista = new ArrayList<>();
+    private int id;
+    private Usuario us; //  = new Usuario();
+
+    /**
+     * Get the value of id
+     *
+     * @return the value of id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @param id new value of id
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the us
+     */
+    public Usuario getUs() {
+        return us;
+    }
 
     @Override
     public String execute() throws Exception {
         UsuarioDao ad = new UsuarioDao();
 
-        lista = ad.consulta();
-
+        this.us = ad.consultaPorId(this.id);
+        
         return SUCCESS;
     }
-    /**
-     * @return the lista
-     */
-    public List<Usuario> getLista() {
-        return lista;
-    }    
+
 }

@@ -5,41 +5,34 @@
  */
 package operaciones;
 
-import bean.Usuario;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
-import dao.UsuarioDao;
-import java.sql.SQLException;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
+
 
 /**
  *
  * @author garfi
  */
-@Namespace(value = "/JSP")
-@Action(value = "registrar", results = {
-    @Result(name = SUCCESS, location = "/JSP/exito.jsp")})
-public class RegistrarAction extends ActionSupport {
+@Namespace(value="/JSP")
+@Action(value="hiddenDemo", results= {@Result(name=SUCCESS , location="/JSP/resultags.jsp")})
+public class HiddenDemoAction extends ActionSupport {
 
-    private Usuario us = new Usuario();
+    private String pageId;
+
+    public String getPageId() {
+        return pageId;
+    }
+
+    public void setPageId(String pageId) {
+        this.pageId = pageId;
+    }
 
     @Override
-    public String execute() throws SQLException {
-
-        UsuarioDao ad = new UsuarioDao();
-
-        ad.insertar(getUs());
+    public String execute() {
 
         return SUCCESS;
     }
-
-    /**
-     * @return the us
-     */
-    public Usuario getUs() {
-        return us;
-    }
-
 }

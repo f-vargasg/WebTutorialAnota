@@ -14,8 +14,11 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href="insUsuario.jsp">Ingresar usuario</a> <br/>
         <table>
             <tr>
+                <td></td>
+                <td></td>
                 <td>Id</td>
                 <td>Nombre</td>
                 <td>Apellido</td> 
@@ -24,6 +27,14 @@
             </tr>
             <s:iterator value="lista">
                 <tr>
+                    <td><s:form action="showModUsuario.action">
+                            <s:hidden name="id" value="%{id}" />
+                            <s:submit value="Modif." />
+                        </s:form></td>
+                    <td><s:form action="showDelUsuario.action">
+                            <s:hidden name="id" value="%{id}" />
+                            <s:submit value="Borrar" />
+                        </s:form></td>
                     <td><s:property value="id"></s:property></td>
                     <td><s:property value="nombre"></s:property></td>
                     <td><s:property value="apellido"></s:property></td>
