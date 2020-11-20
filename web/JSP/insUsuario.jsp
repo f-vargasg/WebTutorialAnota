@@ -26,6 +26,4 @@
         <s:submit value="Cancelar"></s:submit>
     </s:form>
 
-
-
 </html>
