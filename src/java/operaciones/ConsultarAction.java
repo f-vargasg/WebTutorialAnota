@@ -21,7 +21,7 @@ import org.apache.struts2.convention.annotation.Result;
  */
 @Namespace(value="/JSP")
 // @Action(value="consultar", results= {@Result(name="success" , location="/JSP/tabla.jsp")})
-@Action(value="consultar", results= {@Result(name=SUCCESS , location="/JSP/tabla.jsp")})
+@Action(value="consultar", results= {@Result(name=SUCCESS , location="/JSP/listarUsuarios.jsp")})
 public class ConsultarAction extends ActionSupport {
 
     private List<Usuario> lista = new ArrayList<>();
