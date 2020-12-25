@@ -7,11 +7,11 @@
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <web-module-libraries>
                 <library dirs="200">
-                    <file>${libs.Struts-2.5.22-Anota.classpath}</file>
+                    <file>${libs.Struts2.5.22-Anota.classpath}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.mariadb-java-client-2.6.2.jar}</file>
+                    <file>${file.reference.mariadb-java-client-2.7.1.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
