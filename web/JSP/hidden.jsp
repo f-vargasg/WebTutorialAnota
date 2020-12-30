@@ -13,8 +13,13 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <!--
+            hidden.jsp => hiddenDemo.action (una variable que se llama pageId) setter
+        se pasa a la accion
+         hiddenDemo => resultTags.jsp
+        -->
         <s:form action="hiddenDemo.action">
-		<s:hidden name="pageId" value="1000" />
+		<s:hidden name="pageId" value="holamundo" />
 		<s:submit label="Submit" />
 	</s:form>
     </body>

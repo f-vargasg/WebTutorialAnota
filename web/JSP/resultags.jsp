@@ -16,6 +16,12 @@
         <h2>JavaBeat - Struts 2 Hidden Tag Demo</h2>
         <h4>
             Page Id :	<s:property value="pageId" /><br>
+            <s:form action="%{pageId}.action">
+                <s:hidden name="codTipoGastoN" value="%{moneda.codMonedaN}" />
+                <s:textfield label="Codigo" name="moneda.codMonedaN" disabled="false" ></s:textfield>    
+                <s:textfield label="Descripcion" name="moneda.desMoneda"></s:textfield>
+                <s:submit value="Registrar"></s:submit>
+            </s:form>
         </h4>
     </body>
 </html>
